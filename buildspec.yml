@@ -4,11 +4,20 @@ phases:
   install:
     commands:
       - echo Installing...
+      - aws --version
+
+  pre_build:
+    commands:
+      - echo Logging in to ECR
+      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 570068160888.dkr.ecr.us-east-1.amazonaws.com
+
   build:
     commands:
-      - echo Build started
-      - echo Build completed
+      - echo Building Docker image
+      - docker build -t devops-app .
+      - docker tag devops-app:latest 570068160888.dkr.ecr.us-east-1.amazonaws.com/amaansilawat16-lang/devops-app:latest
 
-artifacts:
-  files:
-    - '**/*'
+  post_build:
+    commands:
+      - echo Pushing image
+      - docker push 570068160888.dkr.ecr.us-east-1.amazonaws.com/amaansilawat16-lang/devops-app:latest
