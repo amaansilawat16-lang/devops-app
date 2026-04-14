@@ -20,4 +20,4 @@ phases:
   post_build:
     commands:
       - echo Pushing image
-      - docker push 570068160888.dkr.ecr.us-east-1.amazonaws.com/amaansilawat16-lang/devops-app:latest
+      - docker push 579068160888.dkr.ecr.us-east-1.amazonaws.com/amaansilawat16-lang/devops-app:latest
