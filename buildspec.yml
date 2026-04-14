@@ -15,7 +15,7 @@ phases:
     commands:
       - echo Building Docker image
       - docker build -t devops-app .
-      - docker tag devops-app:latest 570068160888.dkr.ecr.us-east-1.amazonaws.com/amaansilawat16-lang/devops-app:latest
+      - docker tag devops-app:latest 579068160888.dkr.ecr.us-east-1.amazonaws.com/amaansilawat16-lang/devops-app:latest
 
   post_build:
     commands:
